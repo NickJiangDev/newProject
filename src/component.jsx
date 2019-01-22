@@ -1,5 +1,5 @@
 import React from "react";
-import { NavBar, Icon } from "antd-mobile";
+import { NavBar, Icon, Button } from "antd-mobile";
 import "./Component.css";
 
 export default class Hello extends React.Component {
@@ -23,17 +23,11 @@ export default class Hello extends React.Component {
   render() {
     const { jsonData, json } = this.state;
     return (
-      <NavBar
-        mode="light"
-        icon={<Icon type="left" />}
-        onLeftClick={() => console.log("onLeftClick")}
-        rightContent={[
-          <Icon key="0" type="search" style={{ marginRight: "16px" }} />,
-          <Icon key="1" type="ellipsis" />
-        ]}
-      >
-        NavBar
-      </NavBar>
+      <div className="back">
+        <div className="icon" />
+        <p>Nick Jiang's Blog</p>
+        <small>Talk is cheap, show me your code.</small>
+      </div>
     );
   }
 }
