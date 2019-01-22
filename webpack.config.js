@@ -1,7 +1,6 @@
-var path = require("path");
-// var node_modules = path.resolve(__dirname, "node_modules");
-// var pathToReact = path.resolve(node_modules, "react/dist/react.min.js");
-
+const path = require("path");
+const webpack = require("webpack");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin"); // 该插件的主要是为了抽离css样式,防止将样式打包在js中引起页面样式加载错乱的现象
 const devMode = process.env.NODE_ENV !== "production";
 
@@ -38,11 +37,11 @@ var config = {
           "css-loader",
           "sass-loader"
         ]
+      },
+      {
+        test: /\.(jpg|png|gif|mp3|svg)$/,
+        loaders: ["file-loader"]
       }
-      //   {
-      //     test: /\.(jpg|png|gif|mp3|svg)$/,
-      //     loaders: ["file-loader"]
-      //   }
     ]
   }
 };
