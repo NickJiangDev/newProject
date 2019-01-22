@@ -6,16 +6,19 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack --mode production",
-    "dev": "webpack-dev-server --devtool eval --progress --colors --hot --content-base build"
+    "dev": "webpack-dev-server --mode development --config config/webpack.base.config.js --hot --history-api-fallback"
   },
   "keywords": [],
-  "author": "",
+  "author": "Nick_Jiang",
   "license": "ISC",
   "devDependencies": {
+    "antd-mobile": "^2.2.8",
+    "babel-plugin-import": "^1.11.0",
     "html-webpack-plugin": "^3.2.0",
     "node-sass": "^4.11.0",
     "webpack": "^4.29.0",
-    "webpack-cli": "^3.2.1"
+    "webpack-cli": "^3.2.1",
+    "webpack-merge": "^4.2.1"
   },
   "dependencies": {
     "@babel/core": "^7.2.2",

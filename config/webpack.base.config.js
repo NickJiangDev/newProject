@@ -1,16 +1,18 @@
 const path = require("path");
-const webpack = require("webpack");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin"); // 该插件的主要是为了抽离css样式,防止将样式打包在js中引起页面样式加载错乱的现象
 const devMode = process.env.NODE_ENV !== "production";
 
 var config = {
-  entry: ["webpack/hot/dev-server", path.resolve(__dirname, "app/main.js")],
   output: {
     path: path.resolve(__dirname, "build"),
     filename: "bundle.js"
   },
   plugins: [
+    new HtmlWebpackPlugin({
+      template: "./index.html",
+      filename: "./index.html"
+    }),
     new MiniCssExtractPlugin({
       // Options similar to the same options in webpackOptions.output
       // both options are optional
