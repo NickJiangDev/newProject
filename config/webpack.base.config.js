@@ -8,6 +8,11 @@ var config = {
     path: path.resolve(__dirname, "build"),
     filename: "bundle.js"
   },
+  resolve: {
+    alias: {
+      routes: path.resolve(__dirname, "../src/routes")
+    }
+  },
   plugins: [
     new HtmlWebpackPlugin({
       template: "./index.html",
