@@ -33,11 +33,48 @@ var config = {
         }
       },
       {
-        test: /\.(sa|sc|c)ss$/,
+        test: /\.css$/i,
+        exclude: [/node_modules/],
+        use: [
+          {
+            loader: "style-loader"
+          },
+          {
+            loader: "css-loader",
+            options: {
+              modules: true,
+              localIdentName: "[name]__[local]--[hash:base64:5]"
+            }
+          },
+          {
+            loader: "postcss-loader"
+          }
+        ]
+      },
+      {
+        // 只针对antd生效。exclude： 排除src，等于只针对node_modules
+        test: /\.css$/i,
+        exclude: [/src/],
+        use: [
+          {
+            loader: "style-loader"
+          },
+          {
+            loader: "css-loader",
+            options: {
+              importLoaders: 1
+            }
+          }
+        ]
+      },
+
+      {
+        test: /\.(sa|sc|le)ss$/,
         use: [
           devMode ? "style-loader" : MiniCssExtractPlugin.loader,
-          "css-loader",
-          "sass-loader"
+          "css-loader?modules",
+          "sass-loader",
+          "less-loader"
         ]
       },
       {

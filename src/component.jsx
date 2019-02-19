@@ -1,6 +1,6 @@
 import React from "react";
 import { NavBar, Icon, Button } from "antd-mobile";
-import "./Component.css";
+import s from "./Component.less";
 
 export default class Hello extends React.Component {
   constructor(props) {
@@ -23,10 +23,11 @@ export default class Hello extends React.Component {
   render() {
     const { jsonData, json } = this.state;
     return (
-      <div className="back">
-        <div className="icon" />
+      <div className={s.back}>
+        {/* <div className="icon" /> */}
         <p>Nick Jiang's Blog</p>
         <small>Talk is cheap, show me your code.</small>
+        {/* <Button type="primary">123</Button> 测试 global 样式修改*/}
       </div>
     );
   }
